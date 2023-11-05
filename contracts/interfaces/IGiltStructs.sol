@@ -52,6 +52,7 @@ struct GiltDescription {
         uint256 date; 
         uint64 ccipSrcChainId;
         uint256 srcChainId; 
+        bool autonomous; 
 }
 
 struct TeleportRecord {

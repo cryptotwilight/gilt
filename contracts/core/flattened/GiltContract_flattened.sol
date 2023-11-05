@@ -1904,7 +1904,7 @@ contract GiltContract is ERC721, ERC721URIStorage, ERC721Burnable, IGiltContract
     using Strings for address;  
     
     string constant vname = "GILT_CONTRACT";
-    uint256 constant vversion = 5; 
+    uint256 constant vversion = 6; 
 
     uint256 private _nextTokenId;
     IGRegister register; 
@@ -1981,10 +1981,10 @@ contract GiltContract is ERC721, ERC721URIStorage, ERC721Burnable, IGiltContract
          giltIds.push(_giltWid);
         giltById[_giltWid] = Gilt({  
                                     id : _description.tGilt.id, 
-                                    giltContract : self,
+                                    giltContract : _description.tGilt.giltContract,
                                     value : _description.tGilt.value,
                                     erc20 : _description.tGilt.erc20, 
-                                    srcChainId : register.getChainId(), 
+                                    srcChainId : _description.tGilt.srcChainId, 
                                     createDate : block.timestamp, 
                                     vaultId : int256(_description.giltVaultId), 
                                     work : GiltWork({

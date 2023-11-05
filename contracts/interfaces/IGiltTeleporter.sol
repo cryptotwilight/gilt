@@ -15,6 +15,8 @@ interface IGiltTeleporter {
 
     function getTeleportRecord(uint256 _teleportId) view external returns (TeleportRecord memory _teleport);
 
-    function teleport(string memory _destination, Gilt memory _gilt, address _holder) external payable returns (uint256 _teleportId);
+    function teleport(string memory _destination, Gilt memory _gilt, address _holder, bool _autonomous) external payable returns (uint256 _teleportId);
+
+    function teleport(string memory _location, uint256 _giltWid, address _giltWContract, address _holder, bool _autonomous) external payable returns (uint256 _teleportId);
 
 }

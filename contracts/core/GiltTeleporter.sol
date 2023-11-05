@@ -32,7 +32,7 @@ contract GiltTeleporter is IGiltTeleporter, IGVersion {
     }
 
     string constant name = "GILT_TELEPORTER";
-    uint256 constant version = 7; 
+    uint256 constant version = 10; 
 
     string constant LOCATION_REGISTER_CA    = "GILT_LOCATION_REGISTER";
     string constant GILT_VAULT_CA           = "GILT_VAULT";
@@ -78,11 +78,12 @@ contract GiltTeleporter is IGiltTeleporter, IGVersion {
         return teleportRecordById[_teleportId];
     }
 
-    function getTeleportFeeEstimate(string memory _destination, Gilt memory _gilt, address _holder) view external returns (uint256 _fee) {
-        GiltDescription memory giltDescription_ = getGiltDescription(_gilt, NO_VAULT, _holder);
-        Location memory location_ = IGLocationRegister(register.getAddress(LOCATION_REGISTER_CA)).getLocation(_destination);
-        Client.EVM2AnyMessage memory message_ = getMessage(location_, giltDescription_);
-        return getFeeInternal(location_, message_, true);
+    function getTeleportFeeEstimate(string memory _destination, uint256 _giltWid, address _giltWContract, address _holder, bool _autonomous ) view external returns (uint256 _fee) {
+        return getTeleportFeeEstimateInternal(_destination,  IGiltContract(_giltWContract).getGilt(_giltWid), _holder, _autonomous); 
+    }
+
+    function getTeleportFeeEstimate(string memory _destination, Gilt memory _gilt, address _holder, bool _autonomous) view external returns (uint256 _fee) {
+        return getTeleportFeeEstimateInternal(_destination, _gilt,_holder, _autonomous);
     }
 
     function replayTeleport(uint256 _teleportId) external adminOnly payable returns (uint256 _rteleportId) {
@@ -91,17 +92,12 @@ contract GiltTeleporter is IGiltTeleporter, IGVersion {
         TeleportRecord memory tRecord_ = teleportRecordById[_teleportId];
         return processTeleport(tRecord_.destination, tRecord_.gilt, NO_SETTLEMENT);
     }
+    function teleport(string memory _location, uint256 _giltWid, address _giltWContract, address _holder, bool _autonomous) external payable returns (uint256 _teleportId){
+        return teleportInternal(_location, IGiltContract(_giltWContract).getGilt(_giltWid), _holder, _autonomous);
+    }
 
-    function teleport(string memory _location, Gilt memory _gilt, address _holder) external payable returns (uint256 _teleportId){
-        IERC721 erc721_ = IERC721(_gilt.work.wcontract); 
-        require(erc721_.ownerOf(_gilt.work.wid) == msg.sender,"ownership mis-match");
-        erc721_.transferFrom(msg.sender, self, _gilt.work.wid);
-      
-        GiltDescription memory giltDescription_ = getGiltDescription(_gilt, (_gilt.vaultId < 0)?vaultGilt(_gilt): uint256(_gilt.vaultId), _holder);
-        if(_gilt.work.chainId != _gilt.srcChainId) {
-            return processTeleport(_location, giltDescription_,int256(IGiltContract(_gilt.work.wcontract).settleGilt(_gilt)));
-        }
-        return processTeleport(_location, giltDescription_, NO_SETTLEMENT);
+    function teleport(string memory _location, Gilt memory _gilt, address _holder, bool _autonomous) external payable returns (uint256 _teleportId){
+        return teleportInternal(_location, _gilt, _holder, _autonomous);
     }
 
     function withdraw(address payable _to) external adminOnly returns (uint256 _cashout) {
@@ -113,6 +109,25 @@ contract GiltTeleporter is IGiltTeleporter, IGVersion {
 
 
     // ============================= INTENRAL =========================================
+
+    
+    function getTeleportFeeEstimateInternal(string memory _destination, Gilt memory _gilt, address _holder, bool _autonomous) view internal returns (uint256 _fee) {
+        GiltDescription memory giltDescription_ = getGiltDescription(_gilt, NO_VAULT, _holder, _autonomous);
+        Location memory location_ = IGLocationRegister(register.getAddress(LOCATION_REGISTER_CA)).getLocation(_destination);
+        Client.EVM2AnyMessage memory message_ = getMessage(location_, giltDescription_);
+        return getFeeInternal(location_, message_, true);
+    }
+    function teleportInternal(string memory _location, Gilt memory _gilt, address _holder, bool _autonomous) internal returns (uint256 _teleportId) {
+        IERC721 erc721_ = IERC721(_gilt.work.wcontract); 
+        require(erc721_.ownerOf(_gilt.work.wid) == msg.sender,"ownership mis-match");
+        erc721_.transferFrom(msg.sender, self, _gilt.work.wid);
+      
+        GiltDescription memory giltDescription_ = getGiltDescription(_gilt, (_gilt.vaultId < 0)?vaultGilt(_gilt): uint256(_gilt.vaultId), _holder, _autonomous);
+        if(_gilt.work.chainId != _gilt.srcChainId) {
+            return processTeleport(_location, giltDescription_,int256(IGiltContract(_gilt.work.wcontract).settleGilt(_gilt)));
+        }
+        return processTeleport(_location, giltDescription_, NO_SETTLEMENT);
+    }
 
     function processTeleport(string memory _location, GiltDescription memory _giltDescription, int256 _settlementId) internal returns (uint256 _teleportId) {
         _teleportId = getIndex(); 
@@ -148,7 +163,7 @@ contract GiltTeleporter is IGiltTeleporter, IGVersion {
         return _vaultId;
     }
 
-    function getGiltDescription(Gilt memory _gilt, uint256 _vaultId, address _holder) view internal returns (GiltDescription memory _description) {
+    function getGiltDescription(Gilt memory _gilt, uint256 _vaultId, address _holder, bool _autonomous) view internal returns (GiltDescription memory _description) {
         return GiltDescription({
                                 id : getBytesId(),
                                 tGilt : TGilt({
@@ -157,13 +172,14 @@ contract GiltTeleporter is IGiltTeleporter, IGVersion {
                                                 value : _gilt.value, 
                                                 erc20 : _gilt.erc20, 
                                                 srcChainId : _gilt.srcChainId, 
-                                                createDate : _gilt.createDate
+                                                createDate : _gilt.createDate                                         
                                             }),
                                 giltVaultId : _vaultId,                             
                                 holder : _holder,
                                 date : block.timestamp, 
                                 ccipSrcChainId : IGLocationRegister(register.getAddress(LOCATION_REGISTER_CA)).getLocation(register.getChainId()).ccipChainId, 
-                                srcChainId : register.getChainId()
+                                srcChainId : register.getChainId(),
+                                autonomous : _autonomous
                             });
     }
 
@@ -172,7 +188,9 @@ contract GiltTeleporter is IGiltTeleporter, IGVersion {
             receiver: abi.encode(_location.reciever),
             data: abi.encode(_giltDescription),
             tokenAmounts: new Client.EVMTokenAmount[](0),
-            extraArgs: "",
+            extraArgs: Client._argsToBytes(
+                    // Additional arguments, setting gas limit and non-strict sequencing mode
+                    Client.EVMExtraArgsV1({gasLimit: 400_000, strict: false})),
             feeToken: address(0)
         });
         return _message; 
