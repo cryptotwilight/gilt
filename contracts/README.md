@@ -10,7 +10,7 @@ Base Sepolia
 Sepolia 
 
 ### Arbitrum Sepolia
-| Blockchain | Contract                        | Address                                  |Version|Description |
+| Blockchain | Contract                        | Address                                  |Version|Description|
 |------------|---------------------------------|------------------------------------------|-------|-----------|
 |421614      |TEST_GILT_TOKEN                  |0x847ed1C4d0141cEb2B559244EfADc7C885F44752|   0   |*Optimised*|
 |421614      |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|   0   |*Optimised*|
@@ -21,7 +21,18 @@ Sepolia
 |421614      |RESERVED_GILT_LOCATION_REGISTER  |0xBb67f93D77fC6f1F76b3f53cB36Be401546ba8d8|   4   |*Optimised*|
 |421614      |RESERVED_GILT_TELEPORTER         |0xb2B7Ac820C94Fa5Ae9B5eB1358A4Fd613dd86170|   12  |*Optimised*|
 |421614      |RESERVED_GILT_RECIEVER           |0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07|   14  |*Optimised*|
-|421614      ||||
+|421614      |CCIP_ROUTER                      |0x2a9C5afB0d0e4BAb2BCdaE109EC4b0c4Be15a165|   0   |*Optimised*|
+
+#### Available Destinations 
+
+|ID| Name          | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
+|--|---------------|--------------------------------------------|--------------------|----------------------------|-----------|
+|  | Sepolia       | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           |16015286601757825753        | CCIP      |
+|  | OP Sepolia    |  | 11155420           |16015286601757825753        | CCIP      |
+|  | Base Sepolia  |  | 84532              |10344971235874465080        | CCIP      |
+|  | WeMix Testnet |  | 1112           |5224473277236331295        | CCIP      |
+|  | Meter Testnet |  | 83                 |        | Layer Zero|
+
 
 
 ### Meter
@@ -63,3 +74,4 @@ Sepolia
 |11155111    |RESERVED_GILT_LOCATION_REGISTER  |0x847ed1C4d0141cEb2B559244EfADc7C885F44752|   4   |*Optimised* |
 |11155111    |RESERVED_GILT_TELEPORTER         |0x6F548Fb772dcc2c7398da498E6aD6D248dA7970d|   12  |*Optimised* |
 |11155111    |CCIP_ROUTER                      |0x0BF3dE8c5D3e8A2B34D2BEeB17ABfCeBaf363A59|   0   |*Optimised* |
+|11155111    |RESERVED_GILT_RECIEVER           |0x9E520879F74b8FF4262cb77c7964D13237C60Fb9|   14  |*Optimised* |
