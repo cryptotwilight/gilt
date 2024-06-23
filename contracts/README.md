@@ -13,7 +13,7 @@ Sepolia
 | Blockchain | Contract                        | Address                                  |Version|Description|
 |------------|---------------------------------|------------------------------------------|-------|-----------|
 |421614      |TEST_GILT_TOKEN                  |0x847ed1C4d0141cEb2B559244EfADc7C885F44752|   0   |*Optimised*|
-|421614      |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|   0   |*Optimised*|
+|421614      |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|   0   |-|
 |421614      |RESERVED_GILT_OPS_REGISTER       |0xc0Ac69b911Cdf2c237E41EDc9dDfa961a2073B4b|   6   |*Optimised*|
 |421614      |RESERVED_GILT_FUNDS_VAULT_FACTORY|0x3a8c9538E4d182938Dd61b30c4fA1BC4A7254160|   6   |*Optimised*|
 |421614      |RESERVED_GILT_CONTRACT           |0x919A3b95Bd16d6AA0e89621c4491a463a8B6f3fc|   18  |*Optimised*|
@@ -28,39 +28,103 @@ Sepolia
 |ID| Name          | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
 |--|---------------|--------------------------------------------|--------------------|----------------------------|-----------|
 |  | Sepolia       | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           |16015286601757825753        | CCIP      |
-|  | OP Sepolia    |  | 11155420           |16015286601757825753        | CCIP      |
-|  | Base Sepolia  |  | 84532              |10344971235874465080        | CCIP      |
-|  | WeMix Testnet |  | 1112           |5224473277236331295        | CCIP      |
+|  | OP Sepolia    | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
+|  | Base Sepolia  | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 84532              |10344971235874465080        | CCIP      |
+|  | WeMix Testnet | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 1112               |5224473277236331295         | CCIP      |
 |  | Meter Testnet |  | 83                 |        | Layer Zero|
 
 
 
-### Meter
+### Meter Testnet
 | Blockchain | Contract                        | Address                                  |Version|Description|
 |------------|---------------------------------|------------------------------------------|-------|-----------|
-|83          |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|   0   |(Shanghai) |
+|83          |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|   0   |-|
 |83          |RESERVED_GILT_OPS_REGISTER       |0xf1B7282d8E41bC77DA36bD3421C17c5776718AdA|   6   |(Shanghai) |
 |83          |RESERVED_GILT_FUNDS_VAULT_FACTORY|0xc6889C0a791D5971984c29AFaE8e2A242769d1F8|   6   |(Shanghai) |
 |83          |RESERVED_GILT_CONTRACT           |0x09d0aBa0039a1F42a3B1a04d13C85fA252d0cEe8|   18  |(Shanghai)  *Optimised*|
-|83          |                                 |                                          | |
+|83          |RESERVED_GILT_TRANSFER_VAULT     ||   6   |*Optimised* |
+|83          |RESERVED_GILT_LOCATION_REGISTER  ||   4   |*Optimised* |
+|83          |RESERVED_GILT_TELEPORTER         ||   12  |*Optimised* |
+|83          |CCIP_ROUTER                      ||   0   |*Optimised* |
+|83          |RESERVED_GILT_RECIEVER           ||   14  |*Optimised* |
 
+#### Available Destinations 
+
+|ID| Name          | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
+|--|---------------|--------------------------------------------|--------------------|----------------------------|-----------|
+|  | Sepolia       | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           |16015286601757825753        | CCIP      |
+|  | OP Sepolia    | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
+|  | Base Sepolia  | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 84532              |10344971235874465080        | CCIP      |
+|  | WeMix Testnet | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 1112               |5224473277236331295         | CCIP      |
+|  | Meter Testnet |  | 83                 |        | Layer Zero|
 
 ### OP Sepolia
 | Blockchain | Contract                        | Address                                  |Version|Description|
 |------------|---------------------------------|------------------------------------------|-------|-----------|
-|11155420    |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|  0    |*Optimised*|
+|11155420    |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|  0    |-|
 |11155420    |RESERVED_GILT_OPS_REGISTER       |0x2578A2FF9BA8Ec2242f658AAE1bF8aD7B8b1956D|  6    |*Optimised*|
 |11155420    |RESERVED_GILT_FUNDS_VAULT_FACTORY|0xa07CB323a8063d477c887613aBB50F2174296500|  6    |*Optimised*|
 |11155420    |RESERVED_GILT_CONTRACT           |0x6eC701943326c42cB49F9a9aa324E4337FbA60c2|  18   |*Optimised*|
+|11155111    |RESERVED_GILT_TRANSFER_VAULT     |0x901d9fe7448f71114c728e2720C6fc3A7790F67B|   6   |*Optimised*|
+|11155111    |RESERVED_GILT_LOCATION_REGISTER  |0x02f8F662150ab0758719aCdF789D7A8C64C71D6b|   4   |*Optimised*|
+|11155111    |RESERVED_GILT_TELEPORTER         |0x974b9F9899A63ae9c30FEa8211053fbaF03246bD|   13  |*Optimised*|
+|11155111    |CCIP_ROUTER                      |0x114A20A10b43D4115e5aeef7345a1A71d2a60C57|   0   |*Optimised*|
+|11155111    |RESERVED_GILT_RECIEVER           |0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8|   14  |*Optimised*|
 
+#### Available Destinations 
+
+|ID| Name             | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
+|--|------------------|--------------------------------------------|--------------------|----------------------------|-----------|
+|  | Sepolia          | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           | 16015286601757825753       | CCIP      |
+|  | Arbitrum Sepolia | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           | 5224473277236331295        | CCIP      |
+|  | Base Sepolia     | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 84532              | 10344971235874465080       | CCIP      |
+|  | WeMix Testnet    | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 1112               | 5224473277236331295        | CCIP      |
+|  | Meter Testnet    |                                            | 83                 |                            | Layer Zero|
 
 ### Base Sepolia
 | Blockchain | Contract                        | Address                                  |Version|Description|
 |------------|---------------------------------|------------------------------------------|-------|-----------|
-|84532       |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|   0   |*Optimised*|
+|84532       |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|   0   |-|
 |84532       |RESERVED_GILT_OPS_REGISTER       |0x2578A2FF9BA8Ec2242f658AAE1bF8aD7B8b1956D|   6   |*Optimised*|
 |84532       |RESERVED_GILT_FUNDS_VAULT_FACTORY|0xa07CB323a8063d477c887613aBB50F2174296500|   6   |*Optimised*|
 |84532       |RESERVED_GILT_CONTRACT           |0x6eC701943326c42cB49F9a9aa324E4337FbA60c2|   18  |*Optimised*|
+|84532       |RESERVED_GILT_TRANSFER_VAULT     |0x847ed1C4d0141cEb2B559244EfADc7C885F44752|   6   |*Optimised*|
+|84532       |RESERVED_GILT_LOCATION_REGISTER  |0x131312E32Ac6a4c6969C175698fDCeFC4c6fC530|   4   |*Optimised*|
+|84532       |RESERVED_GILT_TELEPORTER         |0x6F548Fb772dcc2c7398da498E6aD6D248dA7970d|   13  |*Optimised*|
+|84532       |CCIP_ROUTER                      |0xD3b06cEbF099CE7DA4AcCf578aaebFDBd6e88a93|   0   |*Optimised*|
+|84532       |RESERVED_GILT_RECIEVER           |0x9E520879F74b8FF4262cb77c7964D13237C60Fb9|   14  |*Optimised*|
+
+#### Available Destinations 
+
+|ID| Name             | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
+|--|------------------|--------------------------------------------|--------------------|----------------------------|-----------|
+|  | Sepolia          | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           |16015286601757825753        | CCIP      |
+|  | OP Sepolia       | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
+|  | Arbitrum Sepolia | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 84532              |10344971235874465080        | CCIP      |
+|  | Meter Testnet    |  | 83                 |        | Layer Zero|
+
+### Wemix Testnet
+| Blockchain | Contract                        | Address                                  |Version|Description|
+|------------|---------------------------------|------------------------------------------|-------|-----------|
+|1112        |RESERVED_GILT_ADMIN              |0xC1436aD1dAc368a81AF38E25Faf4cCe8872B2746|   0   | - |
+|1112        |RESERVED_GILT_OPS_REGISTER       |0x2578A2FF9BA8Ec2242f658AAE1bF8aD7B8b1956D|   6   | (EVM: paris)|
+|1112        |RESERVED_GILT_FUNDS_VAULT_FACTORY|0xb477c73223ba9B4Bb1566b028c4bb7aFbd8a9752|   6   |*Optimised* (EVM: paris)|
+|1112        |RESERVED_GILT_CONTRACT           |0xa07CB323a8063d477c887613aBB50F2174296500|   18  |*Optimised* (EVM: paris)|
+|1112        |RESERVED_GILT_TRANSFER_VAULT     |0x901d9fe7448f71114c728e2720C6fc3A7790F67B|   6   |*Optimised* (EVM: paris)|
+|1112        |RESERVED_GILT_LOCATION_REGISTER  |0x02f8F662150ab0758719aCdF789D7A8C64C71D6b|   4   |*Optimised* (EVM: paris)|
+|1112        |RESERVED_GILT_TELEPORTER         |0x974b9F9899A63ae9c30FEa8211053fbaF03246bD|   12  |*Optimised* (EVM: paris)|
+|1112        |CCIP_ROUTER                      |0xA8C0c11bf64AF62CDCA6f93D3769B88BdD7cb93D|   0   |*Optimised* (EVM: paris)|
+|1112        |RESERVED_GILT_RECIEVER           |0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8|   14  |*Optimised* (EVM: paris)|
+
+#### Available Destinations 
+
+|ID| Name             | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
+|--|------------------|--------------------------------------------|--------------------|----------------------------|-----------|
+|  | Sepolia          | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           |16015286601757825753        | CCIP      |
+|  | OP Sepolia       | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
+|  | Arbitrum Sepolia | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 421614             |5224473277236331295         | CCIP      |
+|  | Meter Testnet |  | 83                 |        | Layer Zero|
+
 
 
 ### Sepolia
@@ -75,3 +139,13 @@ Sepolia
 |11155111    |RESERVED_GILT_TELEPORTER         |0x6F548Fb772dcc2c7398da498E6aD6D248dA7970d|   12  |*Optimised* |
 |11155111    |CCIP_ROUTER                      |0x0BF3dE8c5D3e8A2B34D2BEeB17ABfCeBaf363A59|   0   |*Optimised* |
 |11155111    |RESERVED_GILT_RECIEVER           |0x9E520879F74b8FF4262cb77c7964D13237C60Fb9|   14  |*Optimised* |
+
+#### Available Destinations 
+
+|ID| Name              | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
+|--|-------------------|--------------------------------------------|--------------------|----------------------------|-----------|
+|  | Wemix Testnet     | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155111           |16015286601757825753        | CCIP      |
+|  | OP Sepolia        | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
+|  | Base Sepolia      | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 84532              |10344971235874465080        | CCIP      |
+|  | Arbitrum Sepolia  | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 421614             |5224473277236331295         | CCIP      |
+|  | Meter Testnet     |  | 83                 |        | Layer Zero|
