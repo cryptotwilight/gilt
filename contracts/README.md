@@ -52,13 +52,9 @@ Wemix
 
 #### Available Destinations 
 
-|ID| Name          | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
-|--|---------------|--------------------------------------------|--------------------|----------------------------|-----------|
-|  | Sepolia       | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           |16015286601757825753        | CCIP      |
-|  | OP Sepolia    | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
-|  | Base Sepolia  | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 84532              |10344971235874465080        | CCIP      |
-|  | WeMix Testnet | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 1112               |5224473277236331295         | CCIP      |
-|  | Meter Testnet | 0x8Ad1E752d892c97243C6c7fF28A216C472e21E56 | 83                 |40156                       | Layer Zero|
+|ID| Name             | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
+|--|------------------|--------------------------------------------|--------------------|----------------------------|-----------|
+|  | Arbitrum Sepolia | 0x4B590F589effD340D4B7D529236146654a212872 |421614              | 40231                      | Layer Zero|
 
 ### OP Sepolia
 | Blockchain | Contract                        | Address                                  |Version|Description|
@@ -78,7 +74,7 @@ Wemix
 |ID| Name             | Reciever Address                           | Universal Chain Id |Transport Protocol Chain Id | Transport | 
 |--|------------------|--------------------------------------------|--------------------|----------------------------|-----------|
 |  | Sepolia          | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           | 16015286601757825753       | CCIP      |
-|  | Arbitrum Sepolia | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           | 5224473277236331295        | CCIP      |
+|  | Arbitrum Sepolia | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           | 3478487238524512106        | CCIP      |
 |  | Base Sepolia     | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 84532              | 10344971235874465080       | CCIP      |
 |  | WeMix Testnet    | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 1112               | 5224473277236331295        | CCIP      |
 |  | Meter Testnet    | 0x8Ad1E752d892c97243C6c7fF28A216C472e21E56 | 83                 |40156                       | Layer Zero|
@@ -102,7 +98,7 @@ Wemix
 |--|------------------|--------------------------------------------|--------------------|----------------------------|-----------|
 |  | Sepolia          | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           |16015286601757825753        | CCIP      |
 |  | OP Sepolia       | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
-|  | Arbitrum Sepolia | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 84532              |10344971235874465080        | CCIP      |
+|  | Arbitrum Sepolia | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 84532              |3478487238524512106         | CCIP      |
 |  | Meter Testnet    | 0x8Ad1E752d892c97243C6c7fF28A216C472e21E56 | 83                 |40156                       | Layer Zero|
 
 ### Wemix Testnet
@@ -124,7 +120,7 @@ Wemix
 |--|------------------|--------------------------------------------|--------------------|----------------------------|-----------|
 |  | Sepolia          | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 11155111           |16015286601757825753        | CCIP      |
 |  | OP Sepolia       | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
-|  | Arbitrum Sepolia | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 421614             |5224473277236331295         | CCIP      |
+|  | Arbitrum Sepolia | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 421614             |3478487238524512106         | CCIP      |
 |  | Meter Testnet    | 0x8Ad1E752d892c97243C6c7fF28A216C472e21E56 | 83                 |40156                       | Layer Zero|
 
 
@@ -151,5 +147,5 @@ Wemix
 |  | Wemix Testnet     | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155111           |16015286601757825753        | CCIP      |
 |  | OP Sepolia        | 0x2ff1343BBE12a5e29990C648eEa8C139A6d483B8 | 11155420           |5224473277236331295         | CCIP      |
 |  | Base Sepolia      | 0x9E520879F74b8FF4262cb77c7964D13237C60Fb9 | 84532              |10344971235874465080        | CCIP      |
-|  | Arbitrum Sepolia  | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 421614             |5224473277236331295         | CCIP      |
+|  | Arbitrum Sepolia  | 0xC3330816DF629EBf867F2e7B3A76Bc2DD5A94d07 | 421614             |3478487238524512106         | CCIP      |
 |  | Meter Testnet     | 0x8Ad1E752d892c97243C6c7fF28A216C472e21E56 | 83                 |40156                       | Layer Zero|
